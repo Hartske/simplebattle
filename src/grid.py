@@ -48,8 +48,9 @@ class Grid():
         y1 = self.y1 + j * self.cell_size_y
         x2 = x1 + self.cell_size_x
         y2 = y1 + self.cell_size_y
+        center = self.get_center(x1, x2, y1, y2)
         # Draw and animate
-        self._cells[i][j].draw(x1, y1, x2, y2)
+        self._cells[i][j].draw(x1, y1, x2, y2, center)
         self._animate()
 
     def _animate(self):
@@ -157,3 +158,9 @@ class Grid():
                 self._cells[i][j].draw_move(self._cells[i][j-1],undo=True)
         else:
             return False
+        
+    def get_center(self, x1, x2, y1, y2):
+        x = (x1 + x2) // 2
+        y = (y1 + y2) // 2
+        center = [x, y]
+        return center

@@ -5,6 +5,7 @@ def main():
     win = Window(1280, 720)
     
     grid = Grid(10, 10, 13, 24, 52, 52, win)
+    grid.solve()
 
     win.wait_for_close()
     
